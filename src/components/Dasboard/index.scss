@@ -1,0 +1,26 @@
+.dashboard {
+    margin: 15px;
+.boards {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+
+}
+.create-new {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #9EA7FC 0%, #65B6F7 100%);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    svg {
+        color: #fff;
+        height: 20px;
+        width: 20px;
+    }
+}
+}

@@ -1,0 +1,32 @@
+.board {
+   width: 280px;
+   background: #E9ECF0;
+   height: 80vh;
+   margin-top: 30px;
+   border-radius: 15px;
+   border-top: 5px solid;
+   &.border-color-backlog {
+          border-color:#C781FF ;
+   }
+    &.border-color-inProgress {
+        border-color:#FFB74D ;
+        ;
+    }
+    &.border-color-review {
+        border-color: #9EA7FC;
+
+    }
+    &.border-color-complete {
+        border-color: #7ED492;
+        ;
+    }
+//    border-image-slice: .5;
+//    border-image-source: linear-gradient(133.98deg, #C781FF -18.23%, #E57373 125.36%);
+   .title {
+    margin: 15px;
+    font-size: 20px;
+    font-family :'Times New Roman', Times, serif;
+    font-weight: 500;
+       
+   }
+};
