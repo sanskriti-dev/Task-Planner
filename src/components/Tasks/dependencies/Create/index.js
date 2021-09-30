@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Input, Button, Select} from 'antd';
+import * as properties from '../../../../mock'
 
 const { Option } = Select;
 
@@ -50,29 +51,29 @@ const CreateTask = (props) => {
     <Form.Item
         label="Priority"
         name="priority"
-        rules={[
-          {
-            required: true,
-            message: 'Please input your password!',
-          },
-        ]}
+        // rules={[
+        //   {
+        //     required: true,
+        //     message: 'Please input your password!',
+        //   },
+        // ]}
       >
         <Select>
-        <Option>ABC</Option>
+        {properties.priority.map(ele => <Option value = {ele.value}>{ele.name}</Option>)}       
         </Select>
       </Form.Item>
       <Form.Item
         label="Assignee"
         name="assignee"
-        rules={[
-          {
-            required: true,
-            message: 'Please input your password!',
-          },
-        ]}
+        // rules={[
+        //   {
+        //     required: true,
+        //     message: 'Please input your password!',
+        //   },
+        // ]}
       >
         <Select>
-        <Option>ABC</Option>
+        {properties.assignee.map(ele => <Option value = {ele.email}>{ele.name}</Option>)}
         </Select>
       </Form.Item>
 
@@ -82,12 +83,12 @@ const CreateTask = (props) => {
         rules={[
           {
             required: true,
-            message: 'Please input your password!',
+            message: 'Please select the status',
           },
         ]}
       >
         <Select>
-        <Option>ABC</Option>
+        {properties.status.map(ele => <Option value = {ele.value}>{ele.name}</Option>)}
         </Select>
       </Form.Item>
 
