@@ -1,2 +1,2 @@
 export const UPDATE_BOARD = 'UPDATE_BOARD'
-export const AUTH_LOGOUT = 'AUTH_LOGOUT'
+export const REORDER_BOARD = 'REORDER_BOARD'
