@@ -2,9 +2,7 @@ import './App.css';
 import Dashboard from './components/Dasboard';
 
 const App = () => {
-  return (
-     <Dashboard/>
-  )
+  return <Dashboard/>
 }
 
 export default App;

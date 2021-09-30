@@ -14,13 +14,7 @@ const CreateTask = (props) => {
 
   return (
     <Form
-      name="basic"
-    //   labelCol={{
-    //     span: 8,
-    //   }}
-    //   wrapperCol={{
-    //     span: 16,
-    //   }}
+      name="Create/Edit Task"
       initialValues={{
         remember: true,
       }}

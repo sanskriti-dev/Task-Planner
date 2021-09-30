@@ -9,6 +9,7 @@ import CreateTask from '../Tasks/dependencies/Create';
 
 const Dashboard = () => {
     const [isModalVisible,setIsModalVisible] = useState(false)
+    
     const boards = [{
         title : "Backlog",
         key: 'backlog',
@@ -44,7 +45,7 @@ const Dashboard = () => {
         </div> 
 
         <Modal title="Create New Task" visible={isModalVisible} onCancel = {() => setIsModalVisible(false)} footer ={null} >
-              <CreateTask/>
+            <CreateTask/>
        </Modal>
         </>
         )
