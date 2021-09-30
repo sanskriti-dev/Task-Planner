@@ -11,17 +11,17 @@
     .priority {
         color: white;
         padding: 5px;
-        font-weight: 900;
+        font-weight: 800;
         width: max-content;
-        border-radius: 15px;
+        border-radius: 5px;
 
-        &.low_priority {
+        &.low {
             background: linear-gradient( 34.34deg, #9EA7FC 0%, #65B6F7 116.98%);
         }
-        &.medium_priority {
+        &.medium {
             background: linear-gradient(315.14deg, #81D5EE 0%, #7ED492 133.97%);
         }
-        &.high_priority {
+        &.high {
          background: linear-gradient(133.98deg, #C781FF -18.23%, #E57373 125.36%);
             
         }
@@ -31,7 +31,8 @@
         margin-right: 15px;
         .assignee {
             padding: 8px;
-            background: rgba(8, 23, 27, 0.2);
+            background: #DADADA;
+
             border-radius: 50%;
             font-weight: 900;
             color: white;
@@ -45,21 +46,30 @@
             svg {
                 height: 20px;
                 width: 20px;
+                color: #DADADA;
             };
         }
     }
 }
 
-    .title {
+    .task-title {
+     margin: 15px;
      margin-bottom: 0px;
-     margin-top: 2px;
+     margin-top: 10px;
      letter-spacing: 1px;
+     font-weight: 800;
+     font-size: 20px;
+     font-family :'Times New Roman', Times, serif;
+     font-weight: 500;
     }
     .description{
     margin-left: 15px;
     margin-bottom: 15px;
     font-size: 14px;
     max-width: 14rem;
+    color: #b8b7b7;
+    // color: grey;
+    font-weight: 500;
     }
 
 }

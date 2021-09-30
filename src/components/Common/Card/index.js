@@ -2,6 +2,7 @@ import React from 'react';
 import * as properties from '../../../mock/index'
 import './index.scss'
 import { EditOutlined } from '@ant-design/icons';
+import { Tooltip } from 'antd';
 
 const Card = (props) => {
     const {title,priority,description,assignee} = props.task
@@ -9,19 +10,19 @@ const Card = (props) => {
      properties.assignee.map(ele => {
          if(ele.email === assignee)
         {
-            user.firstLetter = ele.firstName[0];
-            user.lastLetter = ele.lastName[0];
+            user.firstName = ele.firstName;
+            user.lastName= ele.lastName;
        }})
     return (
         <div className = "card">
             <div className ="task-header">
-            <span className= {`${priority.toLowerCase().replace(" ", "_")} priority`}>{priority}</span>
+          <Tooltip title = {`${priority} Priority`}>  <span className= {`${priority.toLowerCase()} priority`}>{priority}</span> </Tooltip>
              <div className = "actions">
-            <span className = "assignee"> {user.firstLetter}{user.lastLetter}</span>
+             <Tooltip title = {`${user.firstName} ${user.lastName}`}> <span className = "assignee"> {user.firstName[0]}{user.lastName[0]}</span> </Tooltip>
             <button className = "edit"><EditOutlined/></button>
             </div>
             </div>
-            <span className = "title">{title}</span>
+            <span className = "task-title">{title}</span>
             <span className = "description">{description}</span>
         </div>
     )

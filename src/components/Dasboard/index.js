@@ -8,7 +8,6 @@ import { Modal, Tooltip } from 'antd';
 import CreateTask from '../Tasks/dependencies/Create';
 import { DragDropContext  } from "react-beautiful-dnd";
 import { useDispatch, useSelector } from 'react-redux';
-import * as properties from '../../mock/index'
 import { REORDER_BOARD } from '../../store/actions/actionTypes';
 
 const Dashboard = () => {
@@ -18,13 +17,14 @@ const Dashboard = () => {
     let boards = store.boards
     const onDragEnd =(e) => {
         if(e.destination?.droppableId && e.destination?.droppableId !== e.source?.droppableId)
-       dispatch({type : REORDER_BOARD, payload : e})
+        dispatch({type : REORDER_BOARD, payload : e})
     }
     
     return(
         <>
         <Header/>  
         <div className = "dashboard"> 
+        <div className = "sideNav"> </div>
         <div className = 'boards'>
         <DragDropContext onDragEnd= {onDragEnd}>
         {boards.map(ele => <Board key_name={ele.key} title= {ele.title} taskList = {ele.list}/>)}

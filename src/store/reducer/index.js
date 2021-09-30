@@ -1,10 +1,9 @@
 import * as actionTypes from '../actions/actionTypes'
 import * as properties from '../../mock/index'
 
-
 const initialState = { 
     tasks:[],
-    boards : Object.assign(properties.boards)
+    boards : properties.boards
 }
 
 const reducer = (state =initialState,payload) => {

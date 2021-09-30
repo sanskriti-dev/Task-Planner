@@ -1,14 +1,14 @@
 export const priority = [{
     value: "low",
-    name : 'Low Priority'
+    name : 'Low'
 },
 {
     value : 'medium',
-    name : 'Medium Priority'
+    name : 'Medium'
 },
  {
     value : 'high',
-    name : 'High Priority'
+    name : 'High'
 }
 ]
 
@@ -23,6 +23,16 @@ export const assignee = [
     lastName : 'Saluja',
     email : 'satyam.saluja@gmail.com'
     },
+    {
+        firstName: 'RAJAT',
+        lastName : 'Kumar',
+        email : 'rajat.saluja@gmail.com'
+        },
+        {
+            firstName: 'Anil',
+            lastName : 'DUBEJ',
+            email : 'ANIL.saluja@gmail.com'
+            },
 ]
 
 export const status = [
