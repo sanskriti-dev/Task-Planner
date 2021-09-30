@@ -9,10 +9,9 @@ const { Option } = Select;
 const CreateTask = (props) => {
 
   const dispatch = useDispatch()
-
   const onFinish = (values) => {
-    console.log('Success:', values);
     dispatch({type : UPDATE_BOARD,payload : values})
+    props.setIsModalVisible(false)
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -65,7 +64,7 @@ const CreateTask = (props) => {
         // ]}
       >
         <Select>
-        {properties.priority.map(ele => <Option value = {ele.value}>{ele.name}</Option>)}       
+        {properties.priority.map(ele => <Option id = {ele.value}value = {ele.name}>{ele.name}</Option>)}       
         </Select>
       </Form.Item>
       <Form.Item
@@ -79,7 +78,7 @@ const CreateTask = (props) => {
         // ]}
       >
         <Select>
-        {properties.assignee.map(ele => <Option value = {ele.email}>{ele.name}</Option>)}
+        {properties.assignee.map(ele => <Option  value = {ele.email}>{ele.firstName} {ele.lastName}</Option>)}
         </Select>
       </Form.Item>
 

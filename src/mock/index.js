@@ -14,55 +14,57 @@ export const priority = [{
 
 export const assignee = [
    {
-    name: "Sanskriti Saluja",
-    email : "sanskriti.saluja98@gmail.com"
+    firstName: 'Sanskriti',
+    lastName : 'Saluja',
+    email : 'sanskriti.saluja98@gmail.com'
   },
     {
-    name: "Satyam Saluja",
-    email : "satyam.saluja@gmail.com"
+    firstName: 'Satyam',
+    lastName : 'Saluja',
+    email : 'satyam.saluja@gmail.com'
     },
 ]
 
 export const status = [
     {
     id: 0,
-    name:"Backlog",
+    name:'Backlog',
     value : 'backlog',
    },
    {
     id: 1,
-    name:"In Progress",
+    name: 'In Progress',
     value : 'inProgress',
    },
    {
     id: 2,
-    name:"Review",
+    name:'Review',
     value : 'review',
    },
    {
     id: 3,
-    name:"Complete",
+    name: 'Complete',
     value : 'complete',
    }
 ]
 
 export const boards = [{
-        title : "Backlog",
+        title : 'Backlog',
         key: 'backlog',
         list : []
     },
     {
-        title : "In Progress",
+        title : 'In Progress',
         key : 'inProgress',
         list : []
     },
     {
-        title : "Review",
+        title : 'Review',
         key : 'review',
         list : []
     },
     {
-        title : "Complete",
+        title : 'Complete',
         key : 'complete',
         list : []
     }

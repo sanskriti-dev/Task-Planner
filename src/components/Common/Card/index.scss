@@ -1,0 +1,65 @@
+.card {
+    margin: 12px;
+    min-height: 100px;
+    .task-header { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    margin-left: 10px;
+
+    .priority {
+        color: white;
+        padding: 5px;
+        font-weight: 900;
+        width: max-content;
+        border-radius: 15px;
+
+        &.low_priority {
+            background: linear-gradient( 34.34deg, #9EA7FC 0%, #65B6F7 116.98%);
+        }
+        &.medium_priority {
+            background: linear-gradient(315.14deg, #81D5EE 0%, #7ED492 133.97%);
+        }
+        &.high_priority {
+         background: linear-gradient(133.98deg, #C781FF -18.23%, #E57373 125.36%);
+            
+        }
+    }
+
+    .actions {
+        margin-right: 15px;
+        .assignee {
+            padding: 8px;
+            background: rgba(8, 23, 27, 0.2);
+            border-radius: 50%;
+            font-weight: 900;
+            color: white;
+            /* margin-top: 23px; */
+            margin: 15px;
+            margin-top: 15px;
+        }
+        .edit {
+            border: none;
+            background: none;
+            svg {
+                height: 20px;
+                width: 20px;
+            };
+        }
+    }
+}
+
+    .title {
+     margin-bottom: 0px;
+     margin-top: 2px;
+     letter-spacing: 1px;
+    }
+    .description{
+    margin-left: 15px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    max-width: 14rem;
+    }
+
+}

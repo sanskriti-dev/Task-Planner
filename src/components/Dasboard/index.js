@@ -21,14 +21,14 @@ const Dashboard = () => {
         <div className = "dashboard"> 
         <div className = 'boards'>
         {
-            boards.map(ele => <Board key_name={ele.key} title= {ele?.title} tasks = {ele?.list}/>)
+            boards.map(ele => <Board key_name={ele.key} title= {ele?.title} taskList = {ele?.list}/>)
         }
         </div> 
         <button className='create-new' onClick = {() => setIsModalVisible(true)}><PlusOutlined /></button>   
         </div> 
 
         <Modal title="Create New Task" visible={isModalVisible} onCancel = {() => setIsModalVisible(false)} footer ={null} >
-            <CreateTask/>
+            <CreateTask setIsModalVisible= {setIsModalVisible}/>
        </Modal>
         </>
         )
