@@ -1,27 +1,24 @@
 import * as actionTypes from '../actions/actionTypes'
+import * as properties from '../../mock/index'
 
-if(localStorage.getItem("user")){
-var  user = JSON.parse(localStorage.getItem('user'))
-var {token,name,email} = user
-}
-const initialState = {
-    token : token ? token : null,
-    name : name ? name: null ,
-    email : email ? email : null,
-    isloggedIn :email ? true : false
+const initialState = { 
+    boards: properties.boards,
 }
 
 const reducer = (state =initialState,payload) => {
     switch (payload.type) {
         
-        case actionTypes.AUTH_SUCCESS :
-            return {
+        case actionTypes.UPDATE_BOARD: 
+            let newBoard = state.boards.map(ele => {
+               if(ele.key === payload.payload.status)
+                ele.list.push(payload.payload)
+                return ele
+            })
+            return {  
                 ...state,
-                token : payload.payload.token,
-                email : payload.payload.email,
-                name : payload.payload.name,
-                isloggedIn:true
+                boards : newBoard,
              }
+            
         
          case actionTypes.AUTH_LOGOUT : 
           return {

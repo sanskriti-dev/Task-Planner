@@ -1,12 +1,18 @@
 import React from 'react';
 import { Form, Input, Button, Select} from 'antd';
 import * as properties from '../../../../mock'
+import { useDispatch } from 'react-redux';
+import { UPDATE_BOARD } from '../../../../store/actions/actionTypes';
 
 const { Option } = Select;
 
 const CreateTask = (props) => {
+
+  const dispatch = useDispatch()
+
   const onFinish = (values) => {
     console.log('Success:', values);
+    dispatch({type : UPDATE_BOARD,payload : values})
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -29,7 +35,7 @@ const CreateTask = (props) => {
         rules={[
           {
             required: true,
-            message: 'Please input your username!',
+            message: 'Please enter the title!',
           },
         ]}
       >
@@ -41,7 +47,7 @@ const CreateTask = (props) => {
         rules={[
           {
             required: true,
-            message: 'Please input your username!',
+            message: 'Please enter the description!',
           },
         ]}
       >

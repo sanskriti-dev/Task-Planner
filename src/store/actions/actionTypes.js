@@ -1,2 +1,2 @@
-export const AUTH_SUCCESS = 'AUTH_SUCCESS'
+export const UPDATE_BOARD = 'UPDATE_BOARD'
 export const AUTH_LOGOUT = 'AUTH_LOGOUT'

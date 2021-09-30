@@ -12,14 +12,15 @@ export const priority = [{
 }
 ]
 
-export const assignee = [{
+export const assignee = [
+   {
     name: "Sanskriti Saluja",
     email : "sanskriti.saluja98@gmail.com"
-},
-{
-name: "Satyam Saluja",
-email : "satyam.saluja@gmail.com"
-},
+  },
+    {
+    name: "Satyam Saluja",
+    email : "satyam.saluja@gmail.com"
+    },
 ]
 
 export const status = [
@@ -44,3 +45,26 @@ export const status = [
     value : 'complete',
    }
 ]
+
+export const boards = [{
+        title : "Backlog",
+        key: 'backlog',
+        list : []
+    },
+    {
+        title : "In Progress",
+        key : 'inProgress',
+        list : []
+    },
+    {
+        title : "Review",
+        key : 'review',
+        list : []
+    },
+    {
+        title : "Complete",
+        key : 'complete',
+        list : []
+    }
+    ]
+

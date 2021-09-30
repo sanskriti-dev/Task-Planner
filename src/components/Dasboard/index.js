@@ -6,32 +6,15 @@ import {PlusOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import { Modal } from 'antd';
 import CreateTask from '../Tasks/dependencies/Create';
+import * as properties from '../../mock/index'
+import { useSelector } from 'react-redux';
 
 const Dashboard = () => {
     const [isModalVisible,setIsModalVisible] = useState(false)
+    const store = useSelector(state => state)
+    const boards = store.boards
+    console.log("BORADS",boards)
     
-    const boards = [{
-        title : "Backlog",
-        key: 'backlog',
-        list : []
-    },
-    {
-        title : "In Progress",
-        key : 'inProgress',
-        list : []
-    },
-    {
-        title : "Review",
-        key : 'review',
-        list : []
-    },
-    {
-        title : "Complete",
-        key : 'complete',
-        list : []
-    }
-    ]
-
     return(
         <>
         <Header/>  
