@@ -13,16 +13,33 @@ import { REORDER_BOARD } from '../../store/actions/actionTypes';
 const Dashboard = () => {
     const [isModalVisible,setIsModalVisible] = useState(false)
     const store = useSelector(state => state)
+    const [searchText,setSearchText] = useState('')
+    const [filterByAssignee ,setfilterByAssignee] = useState([])
+    const [filterByPriority ,setfilterByPriority] = useState([])
+    const [boards,setBoards] = useState(Object.assign(store.boards))
     const dispatch = useDispatch()
-    let boards = store.boards
     const onDragEnd =(e) => {
         if(e.destination?.droppableId && e.destination?.droppableId !== e.source?.droppableId)
         dispatch({type : REORDER_BOARD, payload : e})
     }
+
+    useEffect(() => {
+        console.log("Search Text",searchText)
+        let boardsSortedBySearch = store.boards
+        let boards = boardsSortedBySearch.map(ele => {
+            ele.list = ele.list.filter(i => i.title.includes(searchText.toLowerCase().trim()))
+            return ele
+        })
+        setBoards(boards)
+        console.log("BOards",boards,store.boards)
+
+    },[searchText])
     
+
+
     return(
         <>
-        <Header/>  
+        <Header setfilterByAssignee = {setfilterByAssignee} setfilterByPriority = {setfilterByPriority} setSearchText = {setSearchText}/>  
         <div className = "dashboard"> 
         <div className = "sideNav"> </div>
         <div className = 'boards'>

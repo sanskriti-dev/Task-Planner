@@ -1,3 +1,33 @@
 nav{
     background: linear-gradient(90deg, #9EA7FC 0%, #65B6F7 124.87%, #65B6F7 124.87%);
+    height: 50px;
 }
+
+.nav-items {
+    margin: 30px;
+    height: 2em;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    svg{
+         color: rgb(0, 0, 0);
+    }
+    .search-nav {
+        width: 30%;
+    }
+    .filters{
+        display: flex;
+        width: 40%;
+      
+        .filter-select {
+            margin-right: 5px;
+            width: inherit;
+            height: 20%;
+        }
+      
+    }
+}
+
+
+
+   

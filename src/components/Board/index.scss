@@ -1,7 +1,7 @@
 .board {
    width: 280px;
    background: #E9ECF0;
-   height: 80vh;
+   height: 85vh;
    margin-top: 30px;
    border-radius: 15px;
    border-top: 5px solid;
@@ -14,13 +14,12 @@
             .title{
                 color: #fff;
                 font-weight: 900;
-                font-size: 30px;
             }
           }
           
    }
     &.border-color-inProgress {
-        border-color:#FFB74D ;
+        border-color:#FF9784 ;
         &.draggablebg {
             background: linear-gradient(135deg, #FF9784 0%, #FFB74D 100%);   
             .title{
