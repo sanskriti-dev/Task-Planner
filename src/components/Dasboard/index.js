@@ -35,9 +35,8 @@ const Dashboard = () => {
     const onDragEnd =(e) => {
         if(e.destination?.droppableId && e.destination?.droppableId !== e.source?.droppableId)
         {
-            let task;
-            let boardsCopy = _.cloneDeep(store.boards)
-            
+            let task = {};
+            let boardsCopy = _.cloneDeep(store.boards)            
             boardsCopy.map(ele => {
                 if (ele.key === e.source.droppableId) {
                     task = ele.list.find(item => item.id === e.draggableId)
@@ -47,6 +46,7 @@ const Dashboard = () => {
             })
             let updatedBoard = boardsCopy.map(ele => {
                 if (ele.key === e.destination.droppableId) {
+                    task.status = e.destination.droppableId
                     ele.list.splice(e.destination.index, 0, task);  //added in new Board
                 }
                 return ele
