@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Form, Input, Button, Select, notification } from 'antd';
 import * as properties from '../../../../mock'
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,12 +13,29 @@ const CreateTask = (props) => {
   const store = useSelector(store => store)
   const {isEditTask, editTaskDetails,editTaskId}  = store
 
+  let initialValues = {
+      title : editTaskDetails?.title,
+      description : editTaskDetails?.description,
+      priority : editTaskDetails?.priority,
+      assignee : editTaskDetails?.assignee,
+      status : editTaskDetails?.status
+  }
+
+  useEffect(() => {
+    if(isEditTask)
+    form.current.setFieldsValue(initialValues)
+    else
+    form.current.resetFields()
+  },[isEditTask])
+
   const onFinish = (values) => {
     
     let newTasks = [...store.tasks]
     let boards = _.cloneDeep(store.boards)
     let newTaskLength = newTasks.length;
     let newBoards = []
+
+   
 
     if (isEditTask) {
       values.id = editTaskId
@@ -35,7 +52,7 @@ const CreateTask = (props) => {
       })
     }
     else {
-      values.id = "task " + newTaskLength
+      values.id = "task-" + newTaskLength
       newBoards = boards.map(ele => {
         if (ele.key === values.status)
           ele.list.push(values)
@@ -53,9 +70,7 @@ const CreateTask = (props) => {
     dispatch({ type: UPDATE_BOARD, payload: data })
     form.current.resetFields()
     notification['success']({
-      message: <strong>Verification Successful</strong>,
-      description:
-          'Your email has been verified successfully',
+      message: <strong>{`Ticket ${isEditTask ? "Edited" : "Created"} Successfully!`}</strong>, 
     });
 
 
@@ -69,10 +84,8 @@ const CreateTask = (props) => {
   return (
     <Form
       name="form"
-      initialValues={editTaskDetails}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
-      autoComplete="off"
       ref = {form}
     >
       <Form.Item
@@ -84,7 +97,6 @@ const CreateTask = (props) => {
             message: 'Please enter the title!',
           },
         ]}
-        defaultValue = {editTaskDetails?.title}
       >
         <Input />
       </Form.Item>
@@ -97,8 +109,6 @@ const CreateTask = (props) => {
             message: 'Please enter the description!',
           },
         ]}
-        vadefaultValuelue = {editTaskDetails?.description}
-
       >
         <Input.TextArea />
       </Form.Item>
@@ -106,7 +116,13 @@ const CreateTask = (props) => {
       <Form.Item
         label="Priority"
         name="priority"
-        defaultValue = {editTaskDetails?.priority}
+        rules={[
+          {
+            required: true,
+            message: 'Please select priority!',
+          },
+        ]}
+
       >
         <Select>
           {properties.priority.map(ele => <Option id={ele.value} value={ele.name}>{ele.name}</Option>)}
@@ -115,7 +131,13 @@ const CreateTask = (props) => {
       <Form.Item
         label="Assignee"
         name="assignee"
-        defaultValue = {editTaskDetails?.assignee}
+        rules={[
+          {
+            required: true,
+            message: 'Please select assignee!',
+          },
+        ]}
+
       >
         <Select>
           {properties.assignee.map(ele => <Option value={ele.email}>{ele.firstName} {ele.lastName}</Option>)}
@@ -128,10 +150,10 @@ const CreateTask = (props) => {
         rules={[
           {
             required: true,
-            message: 'Please select the status',
+            message: 'Please select the status!',
           },
         ]}
-        defaultValue = {editTaskDetails?.status}
+
       >
         <Select>
           {properties.status.map(ele => <Option value={ele.value}>{ele.name}</Option>)}

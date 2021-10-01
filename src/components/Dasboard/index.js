@@ -8,13 +8,12 @@ import { Modal, Tooltip } from 'antd';
 import CreateTask from '../Tasks/dependencies/Create';
 import { DragDropContext  } from "react-beautiful-dnd";
 import { useDispatch, useSelector } from 'react-redux';
-import { REORDER_BOARD } from '../../store/actions/actionTypes';
+import { CANCEL_TASK, REORDER_BOARD } from '../../store/actions/actionTypes';
 import _  from 'lodash'
 
 const Dashboard = () => {
     const store = useSelector(state => state)
     const {isEditTask} = store
-
     const [isModalVisible,setIsModalVisible] = useState(false)
     const [searchByfilter,setSearchByfilter] = useState({
         searchText : '',
@@ -23,9 +22,29 @@ const Dashboard = () => {
     })
     const [boards,setBoards] = useState()
     const dispatch = useDispatch()
+
     const onDragEnd =(e) => {
         if(e.destination?.droppableId && e.destination?.droppableId !== e.source?.droppableId)
-        dispatch({type : REORDER_BOARD, payload : e})
+        {
+            let task;
+            let boardsCopy = _.cloneDeep(store.boards)
+            
+            boardsCopy.map(ele => {
+                if (ele.key === e.source.droppableId) {
+                    task = ele.list.find(item => item.id === e.draggableId)
+                    let taskIndex = ele.list.findIndex(item => item.id === e.draggableId)
+                    ele.list.splice(taskIndex, 1)  //removed from previous board
+                }
+            })
+            let updatedBoard = boardsCopy.map(ele => {
+                if (ele.key === e.destination.droppableId) {
+                    ele.list.splice(e.destination.index, 0, task);  //added in new Board
+                }
+                return ele
+            })
+            dispatch({type : REORDER_BOARD, payload : updatedBoard})  // update boards
+        }
+       
     }
 
     useEffect(() => {   
@@ -50,6 +69,12 @@ const Dashboard = () => {
 
     }
 
+    const handleOnCloseModal = () => {
+        if(isEditTask)
+         dispatch({type: CANCEL_TASK})
+         setIsModalVisible(false)
+    }
+
 
     return(
         <>
@@ -65,7 +90,7 @@ const Dashboard = () => {
         <button className='create-new' onClick = {() => setIsModalVisible(true)}><PlusOutlined /></button>   
         </Tooltip>
         </div> 
-        <Modal visible={isModalVisible} onCancel = {() => setIsModalVisible(false)} footer ={null} >
+        <Modal visible={isModalVisible} onCancel = {handleOnCloseModal} footer ={null} >
             <CreateTask setIsModalVisible= {setIsModalVisible} />
        </Modal>
         </>

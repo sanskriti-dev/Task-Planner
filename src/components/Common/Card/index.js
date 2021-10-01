@@ -17,7 +17,6 @@ const Card = (props) => {
             user.lastName= ele.lastName;
        }})
        const handleEdit = () => {
-           console.log("INS")
            dispatch({type: EDIT_TASK,payload: props})
        }
     return (
