@@ -1,16 +1,35 @@
 import React from 'react';
 import { Form, Input, Button, Select} from 'antd';
 import * as properties from '../../../../mock'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { UPDATE_BOARD } from '../../../../store/actions/actionTypes';
+import { updateBoard } from '../../../../store/actions';
+import _ from 'lodash'
 
 const { Option } = Select;
 
 const CreateTask = (props) => {
 
   const dispatch = useDispatch()
+  const store = useSelector(store => store)
   const onFinish = (values) => {
-    dispatch({type : UPDATE_BOARD,payload : values})
+
+          let newTasks = [...store.tasks]
+            let boards = _.cloneDeep(store.boards)
+            let newTaskLength = newTasks.length;
+             values.id = "task " + newTaskLength
+            let newboards = boards.map(ele => {
+                if(ele.key === values.status)
+                ele.list.push(values)
+                return ele
+            })
+            newTasks.push(values)
+
+            let data = {
+              boards :newboards,
+              tasks : newTasks
+            }      
+    dispatch({type : UPDATE_BOARD , payload : data})
     props.setIsModalVisible(false)
   };
 
@@ -56,12 +75,6 @@ const CreateTask = (props) => {
     <Form.Item
         label="Priority"
         name="priority"
-        // rules={[
-        //   {
-        //     required: true,
-        //     message: 'Please input your password!',
-        //   },
-        // ]}
       >
         <Select>
         {properties.priority.map(ele => <Option id = {ele.value}value = {ele.name}>{ele.name}</Option>)}       
@@ -70,12 +83,6 @@ const CreateTask = (props) => {
       <Form.Item
         label="Assignee"
         name="assignee"
-        // rules={[
-        //   {
-        //     required: true,
-        //     message: 'Please input your password!',
-        //   },
-        // ]}
       >
         <Select>
         {properties.assignee.map(ele => <Option  value = {ele.email}>{ele.firstName} {ele.lastName}</Option>)}
@@ -99,12 +106,7 @@ const CreateTask = (props) => {
 
     
 
-      <Form.Item
-        // wrapperCol={{
-        //   offset: 8,
-        //   span: 16,
-        // }}
-      >
+      <Form.Item >
         <Button type="primary" htmlType="submit">
           Create
         </Button>

@@ -9,42 +9,53 @@ import CreateTask from '../Tasks/dependencies/Create';
 import { DragDropContext  } from "react-beautiful-dnd";
 import { useDispatch, useSelector } from 'react-redux';
 import { REORDER_BOARD } from '../../store/actions/actionTypes';
+import _  from 'lodash'
 
 const Dashboard = () => {
-    const [isModalVisible,setIsModalVisible] = useState(false)
     const store = useSelector(state => state)
-    const [searchText,setSearchText] = useState('')
-    const [filterByAssignee ,setfilterByAssignee] = useState([])
-    const [filterByPriority ,setfilterByPriority] = useState([])
-    const [boards,setBoards] = useState(Object.assign(store.boards))
+
+    const [isModalVisible,setIsModalVisible] = useState(false)
+    const [searchByfilter,setSearchByfilter] = useState({
+        searchText : '',
+        priority : [],
+        assignee: []
+    })
+    const [boards,setBoards] = useState()
     const dispatch = useDispatch()
     const onDragEnd =(e) => {
         if(e.destination?.droppableId && e.destination?.droppableId !== e.source?.droppableId)
         dispatch({type : REORDER_BOARD, payload : e})
     }
 
-    useEffect(() => {
-        console.log("Search Text",searchText)
-        let boardsSortedBySearch = store.boards
-        let boards = boardsSortedBySearch.map(ele => {
-            ele.list = ele.list.filter(i => i.title.includes(searchText.toLowerCase().trim()))
-            return ele
-        })
-        setBoards(boards)
-        console.log("BOards",boards,store.boards)
+    useEffect(() => {   
+        const newBoard =_.cloneDeep(store.boards)
+        setBoards(newBoard)
+    },[store.boards])
 
-    },[searchText])
-    
+
+
+    const filterBoard = (filters) => {
+        let newBoard =_.cloneDeep(store.boards)
+        newBoard = newBoard.map(ele => {
+            ele.list = ele.list.filter(x => x.title.toLowerCase().includes(searchByfilter.searchText.toLowerCase()))
+            .filter(y => searchByfilter.priority?.length ? searchByfilter.priority.includes(y.priority.toLowerCase()) : y)
+            .filter(z => searchByfilter.assignee?.length ? searchByfilter.assignee.includes(z.assignee) : z)
+          return ele
+        })
+        setBoards(newBoard)
+        setSearchByfilter(filters)
+
+    }
 
 
     return(
         <>
-        <Header setfilterByAssignee = {setfilterByAssignee} setfilterByPriority = {setfilterByPriority} setSearchText = {setSearchText}/>  
+        <Header filterBoard = {filterBoard} searchByfilter = {searchByfilter} />  
         <div className = "dashboard"> 
         <div className = "sideNav"> </div>
         <div className = 'boards'>
         <DragDropContext onDragEnd= {onDragEnd}>
-        {boards.map(ele => <Board key_name={ele.key} title= {ele.title} taskList = {ele.list}/>)}
+        {boards?.map(ele => <Board key_name={ele.key} title= {ele.title} taskList = {ele.list}/>)}
          </DragDropContext>
         </div> 
        <Tooltip title = "Create New Task">

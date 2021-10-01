@@ -1,29 +1,40 @@
 import * as actionTypes from '../actions/actionTypes'
-import * as properties from '../../mock/index'
 
 const initialState = { 
     tasks:[],
-    boards : properties.boards
+    boards : [
+        {
+        title : 'Backlog',
+        key: 'backlog',
+        list : []
+    },
+    {
+        title : 'In Progress',
+        key : 'inProgress',
+        list : []
+    },
+    {
+        title : 'Review',
+        key : 'review',
+        list : []
+    },
+    {
+        title : 'Complete',
+        key : 'complete',
+        list : []
+    }
+    ]
 }
 
 const reducer = (state =initialState,payload) => {
     switch (payload.type) {
         
         case actionTypes.UPDATE_BOARD: {
-            let newTasks = [...state.tasks]
-            let newTaskLength = newTasks.length;
-            payload.payload.id = "task " + newTaskLength
-            let newboards = state.boards.map(ele => {
-                if(ele.key === payload.payload.status)
-                ele.list.push(payload.payload)
-                return ele
-            })
-            console.log(payload.payload)
-            newTasks.push(payload.payload)
+            console.log(payload)
+        
             return {  
-                ...state,
-                tasks : newTasks,
-                boards :newboards
+                tasks : payload.payload.tasks,
+                boards : payload.payload.boards
              }
             }
             
@@ -43,6 +54,7 @@ const reducer = (state =initialState,payload) => {
             }
             return ele
         })
+
           return {
               ...state , 
                boards : newboards
