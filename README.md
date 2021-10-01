@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# Task Planner
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> A task management application built with ReactJS.
 
-## Available Scripts
 
-In the project directory, you can run:
+https://user-images.githubusercontent.com/46748114/135690099-907cfa89-3c12-4e86-a877-c876a659bc79.mp4
 
-### `yarn start`
+![WhatsApp Image 2021-10-02 at 3 11 45 AM (1)](https://user-images.githubusercontent.com/46748114/135690138-195f6314-9dfc-4e01-9863-cf3ee581b176.jpeg)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Features
 
-### `yarn test`
+### Create
+- Ability to create a new Task with **title**, **description**, **assignee**, **priority** and **status**
+![WhatsApp Image 2021-10-02 at 3 28 59 AM](https://user-images.githubusercontent.com/46748114/135690603-767ae940-81f7-4d93-a176-0ed993d8a3c3.jpeg)
+- Custom validations while creating tasks!
+![WhatsApp Image 2021-10-02 at 3 28 58 AM](https://user-images.githubusercontent.com/46748114/135690598-3aacb4a5-8161-4650-9deb-61365855a74d.jpeg)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+### Update
+- Edit a given task and its properties.
+![WhatsApp Image 2021-10-02 at 3 11 45 AM (2)](https://user-images.githubusercontent.com/46748114/135690192-6991120a-765d-43ae-aceb-60389421b099.jpeg)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  
+### Filter
+  - Filter by *Assignee*.
+  ![WhatsApp Image 2021-10-02 at 3 11 46 AM (1)](https://user-images.githubusercontent.com/46748114/135690264-a82e3663-41dc-4ac2-bd12-60db6d6d28e5.jpeg)
+  - Filter by *Priority* - Low, Medium and High
+![WhatsApp Image 2021-10-02 at 3 11 47 AM](https://user-images.githubusercontent.com/46748114/135690266-6ad55f3a-1ea0-43e3-9485-fa6fbeab30f8.jpeg)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    
+### Search Tasks by title 
+- One can globally search tasks by its title name.
+![WhatsApp Image 2021-10-02 at 3 11 47 AM (1)](https://user-images.githubusercontent.com/46748114/135690286-f336e097-c004-4811-8a70-eb8a4febe907.jpeg)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Data pertains on local storage
+- All the tasks and its current status is saved in local storage. So after refresh, status of the boards are pertained.
+  
+## Key Points
+- Redux for state management
+- SCSS
+- Ant Library
+- Drag and Drop tasks using [react-beautiful-dnd](https://www.npmjs.com/package/react-beautiful-dnd)
+- Functional Components
+- Reusable and Optimised Components
