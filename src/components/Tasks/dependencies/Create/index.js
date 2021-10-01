@@ -4,6 +4,7 @@ import * as properties from '../../../../mock'
 import { useDispatch, useSelector } from 'react-redux';
 import { UPDATE_BOARD } from '../../../../store/actions/actionTypes';
 import _ from 'lodash'
+import { saveBoardsToLS } from '../../../../utils';
 
 const { Option } = Select;
 
@@ -72,6 +73,8 @@ const CreateTask = (props) => {
     notification['success']({
       message: <strong>{`Ticket ${isEditTask ? "Edited" : "Created"} Successfully!`}</strong>, 
     });
+
+    saveBoardsToLS(newBoards)
 
 
   };

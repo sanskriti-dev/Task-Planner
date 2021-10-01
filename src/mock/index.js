@@ -19,19 +19,24 @@ export const assignee = [
     email : 'sanskriti.saluja98@gmail.com'
   },
     {
-    firstName: 'Satyam',
-    lastName : 'Saluja',
-    email : 'satyam.saluja@gmail.com'
+    firstName: 'Anupama',
+    lastName : 'Singh',
+    email : 'anupama.singh@gmail.com'
     },
     {
-        firstName: 'RAJAT',
+        firstName: 'Rajat',
         lastName : 'Kumar',
-        email : 'rajat.saluja@gmail.com'
+        email : 'rajat.kumar@gmail.com'
         },
     {
         firstName: 'Anil',
-        lastName : 'DUBEJ',
-        email : 'ANIL.saluja@gmail.com'
+        lastName : 'Dubey',
+        email : 'anil.dubey@gmail.com'
+    },
+    {
+        firstName: 'Gunjan',
+        lastName : 'Saxena',
+        email : 'gunjan.saxena@gmail.com'
     },
 ]
 

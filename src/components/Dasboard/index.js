@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Board from '../Board';
 import Header from '../Common/Header';
 import './index.scss'
@@ -15,7 +15,7 @@ const Dashboard = () => {
     const store = useSelector(state => state)
     const {isEditTask} = store
     const [isModalVisible,setIsModalVisible] = useState(false)
-    const [searchByfilter,setSearchByfilter] = useState({
+    const [searchByfilter,setSearchByfilter] = useState({           //filter object
         searchText : '',
         priority : [],
         assignee: []
@@ -52,7 +52,7 @@ const Dashboard = () => {
         setBoards(newBoard)
     },[store.boards])
 
-    useEffect(() => {
+    useCallback(() => {
         setIsModalVisible(isEditTask)
     },[isEditTask])
 

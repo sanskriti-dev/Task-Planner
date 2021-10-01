@@ -1,12 +1,14 @@
 import * as actionTypes from '../actions/actionTypes'
 import * as properties from '../../mock/index'
+import { getBoardsFromLS } from '../../utils'
+
 
 const initialState = {
     tasks: [],
     editTaskDetails: null,
     isEditTask: false,
     editTaskId: null,
-    boards: properties.boards
+    boards: getBoardsFromLS() ? getBoardsFromLS() : properties.boards
 }
 
 const reducer = (state = initialState, payload) => {
