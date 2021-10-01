@@ -1,61 +1,58 @@
 .board {
-   width: 280px;
-   background: #E9ECF0;
-   height: 85vh;
-   margin-top: 30px;
-   border-radius: 15px;
-   border-top: 5px solid;
-   overflow-y:auto;
-
-   &.border-color-backlog {
-          border-color:#C781FF ;
-          &.draggablebg {
-            background: linear-gradient(133.98deg, #C781FF -18.23%, #E57373 125.36%);
-            .title{
-                color: #fff;
-                font-weight: 900;
-            }
-          }
-          
-   }
-    &.border-color-inProgress {
-        border-color:#FF9784 ;
-        &.draggablebg {
-            background: linear-gradient(135deg, #FF9784 0%, #FFB74D 100%);   
-            .title{
-                color: #fff;
-                font-weight: 900;
-            } 
-        
-        }
-    
+    width: 280px;
+    background:#f2f3f7;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    height: 85vh;
+    margin-top: 30px;
+    border-radius: 8px;
+    border-top: 5px solid;
+    overflow-y:auto;
+ 
+    &.border-color-backlog {
+           border-color:#C781FF ;
+           &.draggablebg {
+             background: linear-gradient(133.98deg, #C781FF -18.23%, #E57373 125.36%);
+             .title{
+                 color: #fff;
+             }
+           }
+           
     }
-    &.border-color-review {
-        border-color: #9EA7FC;
-        &.draggablebg {
-            background: linear-gradient(134.34deg, #9EA7FC 0%, #65B6F7 114.98%);
-            .title{
-                color: #fff;
-                font-weight: 900;
-            }
-        }
-
+     &.border-color-inProgress {
+         border-color:#FF9784 ;
+         &.draggablebg {
+             background: linear-gradient(135deg, #FF9784 0%, #FFB74D 100%);   
+             .title{
+                 color: #fff;
+             } 
+         
+         }
+     
+     }
+     &.border-color-review {
+         border-color: #9EA7FC;
+         &.draggablebg {
+             background: linear-gradient(134.34deg, #9EA7FC 0%, #65B6F7 114.98%);
+             .title{
+                 color: #fff;
+             }
+         }
+ 
+     }
+     &.border-color-complete {
+         border-color: #7ED492;
+         &.draggablebg {
+             background: linear-gradient(315.14deg, #81D5EE 0%, #7ED492 133.97%);
+             .title{
+                 color: #fff;
+             }
+         }
+           
+     }
+    .title {
+     margin: 15px;
+     font-size: 20px;
+     font-weight: 500;   
     }
-    &.border-color-complete {
-        border-color: #7ED492;
-        &.draggablebg {
-            background: linear-gradient(315.14deg, #81D5EE 0%, #7ED492 133.97%);
-            .title{
-                color: #fff;
-                font-weight: 900;
-            }
-        }
-          
-    }
-   .title {
-    margin: 15px;
-    font-size: 20px;
-    font-weight: 500;   
-   }
-
-};
+ 
+ };

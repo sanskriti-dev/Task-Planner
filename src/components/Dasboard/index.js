@@ -8,8 +8,9 @@ import { Modal, Tooltip } from 'antd';
 import CreateTask from '../Tasks/dependencies/Create';
 import { DragDropContext  } from "react-beautiful-dnd";
 import { useDispatch, useSelector } from 'react-redux';
-import { CANCEL_TASK, REORDER_BOARD } from '../../store/actions/actionTypes';
+import { CANCEL_TASK, REORDER_BOARD, UPDATE_BOARD } from '../../store/actions/actionTypes';
 import _  from 'lodash'
+import { getBoardsFromLS, saveBoardsToLS } from '../../utils';
 
 const Dashboard = () => {
     const store = useSelector(state => state)
@@ -22,6 +23,13 @@ const Dashboard = () => {
     })
     const [boards,setBoards] = useState()
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        if(getBoardsFromLS()?.length){
+            dispatch({type:UPDATE_BOARD,payload :{"tasks": [],"boards": getBoardsFromLS() }})
+        }
+
+    },[])
 
     const onDragEnd =(e) => {
         if(e.destination?.droppableId && e.destination?.droppableId !== e.source?.droppableId)
@@ -50,6 +58,7 @@ const Dashboard = () => {
     useEffect(() => {   
         const newBoard =_.cloneDeep(store.boards)
         setBoards(newBoard)
+        saveBoardsToLS(newBoard)
     },[store.boards])
 
     useEffect(() => {

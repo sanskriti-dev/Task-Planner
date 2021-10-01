@@ -10,10 +10,11 @@ nav{
     display: flex;
     justify-content: space-between;
     svg{
-         color: rgb(0, 0, 0);
+         color:#b9b7b7;
     }
     .search-nav {
         width: 30%;
+        height: 30px;
     }
     .filters{
         display: flex;
@@ -30,7 +31,3 @@ nav{
       
     }
 }
-
-
-
-   

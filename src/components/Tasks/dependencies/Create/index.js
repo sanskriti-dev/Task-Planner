@@ -4,7 +4,7 @@ import * as properties from '../../../../mock'
 import { useDispatch, useSelector } from 'react-redux';
 import { UPDATE_BOARD } from '../../../../store/actions/actionTypes';
 import _ from 'lodash'
-import { saveBoardsToLS } from '../../../../utils';
+import './index.scss'
 
 const { Option } = Select;
 
@@ -31,12 +31,8 @@ const CreateTask = (props) => {
 
   const onFinish = (values) => {
     
-    let newTasks = [...store.tasks]
     let boards = _.cloneDeep(store.boards)
-    let newTaskLength = newTasks.length;
     let newBoards = []
-
-   
 
     if (isEditTask) {
       values.id = editTaskId
@@ -53,20 +49,21 @@ const CreateTask = (props) => {
       })
     }
     else {
-      values.id = "task-" + newTaskLength
+       values.id = "task-" +  boards.reduce((a,c) => {
+           a+=c.list.length
+           return a
+       },0)
       newBoards = boards.map(ele => {
         if (ele.key === values.status)
           ele.list.push(values)
         return ele
       })
-      newTasks.push(values)
       props.setIsModalVisible(false)
 
     }
 
     let data = {
-      boards: newBoards,
-      tasks: newTasks
+      boards: newBoards
     }
     dispatch({ type: UPDATE_BOARD, payload: data })
     form.current.resetFields()
@@ -74,13 +71,10 @@ const CreateTask = (props) => {
       message: <strong>{`Ticket ${isEditTask ? "Edited" : "Created"} Successfully!`}</strong>, 
     });
 
-    saveBoardsToLS(newBoards)
-
-
+   
   };
 
   const onFinishFailed = (errorInfo) => {
-    form.current.resetFields()
     console.log('Failed:', errorInfo);
   };
 

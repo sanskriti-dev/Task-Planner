@@ -4,11 +4,10 @@ import { getBoardsFromLS } from '../../utils'
 
 
 const initialState = {
-    tasks: [],
     editTaskDetails: null,
     isEditTask: false,
     editTaskId: null,
-    boards: getBoardsFromLS() ? getBoardsFromLS() : properties.boards
+    boards: properties.boards
 }
 
 const reducer = (state = initialState, payload) => {
@@ -18,7 +17,6 @@ const reducer = (state = initialState, payload) => {
 
             return {
                 ...state,
-                tasks: payload.payload.tasks,
                 boards: payload.payload.boards,
                 isEditTask: false,
                 editTaskDetails: null,

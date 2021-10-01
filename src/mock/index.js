@@ -14,14 +14,14 @@ export const priority = [{
 
 export const assignee = [
    {
-    firstName: 'Sanskriti',
-    lastName : 'Saluja',
-    email : 'sanskriti.saluja98@gmail.com'
+    firstName: 'John',
+    lastName : 'Doe',
+    email : 'John.Doe@gmail.com'
   },
     {
-    firstName: 'Anupama',
+    firstName: 'Anup',
     lastName : 'Singh',
-    email : 'anupama.singh@gmail.com'
+    email : 'anup.singh@gmail.com'
     },
     {
         firstName: 'Rajat',
@@ -84,4 +84,3 @@ export const boards = [{
         list : []
     }
     ]
-

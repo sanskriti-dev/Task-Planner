@@ -40,7 +40,7 @@ const Header = (props) => {
                 placeholder="Filter By Assignee"
                 maxTagCount={2}
                 onChange = {(e) => handleChange(e,"Assignee")}>
-                   {assignee.map(ele =>  <Option value = {ele.email}> {ele.firstName} {ele.lastName} </Option>)}
+                   {assignee.map((ele,index) =>  <Option key={`assignee-${index}`} value = {ele.email}> {ele.firstName} {ele.lastName} </Option>)}
                  </Select>
              <Select
                 mode="tags"
@@ -49,7 +49,7 @@ const Header = (props) => {
                 maxTagCount={2}
                 onChange = {(e) => handleChange(e,"Priority")}
                  >
-                {priority.map(ele =>  <Option value = {ele.value}> {ele.name}</Option>)}
+                {priority.map((ele,index) =>  <Option key={`priority-${index}`} value = {ele.value}> {ele.name}</Option>)}
                  </Select>
             </div>
         </div>
