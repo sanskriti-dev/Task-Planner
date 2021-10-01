@@ -13,6 +13,7 @@ import _  from 'lodash'
 
 const Dashboard = () => {
     const store = useSelector(state => state)
+    const {isEditTask} = store
 
     const [isModalVisible,setIsModalVisible] = useState(false)
     const [searchByfilter,setSearchByfilter] = useState({
@@ -32,7 +33,9 @@ const Dashboard = () => {
         setBoards(newBoard)
     },[store.boards])
 
-
+    useEffect(() => {
+        setIsModalVisible(isEditTask)
+    },[isEditTask])
 
     const filterBoard = (filters) => {
         let newBoard =_.cloneDeep(store.boards)
@@ -62,8 +65,8 @@ const Dashboard = () => {
         <button className='create-new' onClick = {() => setIsModalVisible(true)}><PlusOutlined /></button>   
         </Tooltip>
         </div> 
-        <Modal title="Create New Task" visible={isModalVisible} onCancel = {() => setIsModalVisible(false)} footer ={null} >
-            <CreateTask setIsModalVisible= {setIsModalVisible}/>
+        <Modal visible={isModalVisible} onCancel = {() => setIsModalVisible(false)} footer ={null} >
+            <CreateTask setIsModalVisible= {setIsModalVisible} />
        </Modal>
         </>
         )

@@ -5,8 +5,7 @@
    margin-top: 30px;
    border-radius: 15px;
    border-top: 5px solid;
-   overflow-y: auto;
-//    z-index:-1;
+   overflow-y:auto;
 
    &.border-color-backlog {
           border-color:#C781FF ;
@@ -53,13 +52,10 @@
         }
           
     }
-//    border-image-slice: .5;
-//    border-image-source: linear-gradient(133.98deg, #C781FF -18.23%, #E57373 125.36%);
    .title {
     margin: 15px;
     font-size: 20px;
-    font-family :'Times New Roman', Times, serif;
-    font-weight: 500;
-       
+    font-weight: 500;   
    }
+
 };

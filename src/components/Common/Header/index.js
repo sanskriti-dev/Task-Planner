@@ -46,7 +46,7 @@ const Header = (props) => {
                 mode="tags"
                 className = 'filter-select'
                 placeholder="Filter By Priority"
-                maxTagCount={1}
+                maxTagCount={2}
                 onChange = {(e) => handleChange(e,"Priority")}
                  >
                 {priority.map(ele =>  <Option value = {ele.value}> {ele.name}</Option>)}

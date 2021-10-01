@@ -2,6 +2,9 @@ import * as actionTypes from '../actions/actionTypes'
 
 const initialState = { 
     tasks:[],
+    editTaskDetails : null,
+    isEditTask :false,
+    editTaskId : null,
     boards : [
         {
         title : 'Backlog',
@@ -30,13 +33,26 @@ const reducer = (state =initialState,payload) => {
     switch (payload.type) {
         
         case actionTypes.UPDATE_BOARD: {
-            console.log(payload)
-        
+            
             return {  
+                ...state,
                 tasks : payload.payload.tasks,
-                boards : payload.payload.boards
+                boards : payload.payload.boards,
+                isEditTask:false,
+                editTaskDetails:null,
+                editTaskId : null
              }
             }
+
+         case actionTypes.EDIT_TASK: {
+             console.log("INNS",payload)
+            return { 
+                    ...state,
+                    isEditTask:true,
+                    editTaskDetails : payload.payload.task,
+                    editTaskId : payload.payload.task.id
+                 }
+            }   
             
         
          case actionTypes.REORDER_BOARD : {

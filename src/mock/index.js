@@ -28,11 +28,11 @@ export const assignee = [
         lastName : 'Kumar',
         email : 'rajat.saluja@gmail.com'
         },
-        {
-            firstName: 'Anil',
-            lastName : 'DUBEJ',
-            email : 'ANIL.saluja@gmail.com'
-            },
+    {
+        firstName: 'Anil',
+        lastName : 'DUBEJ',
+        email : 'ANIL.saluja@gmail.com'
+    },
 ]
 
 export const status = [
