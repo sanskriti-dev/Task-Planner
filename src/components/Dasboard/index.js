@@ -52,7 +52,7 @@ const Dashboard = () => {
         setBoards(newBoard)
     },[store.boards])
 
-    useCallback(() => {
+    useEffect(() => {
         setIsModalVisible(isEditTask)
     },[isEditTask])
 

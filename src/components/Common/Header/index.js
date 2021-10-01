@@ -35,11 +35,11 @@ const Header = (props) => {
            <Input className = "search-nav" size="small" placeholder="Search Task" prefix={<SearchOutlined />} onChange = {(e) => handleChange(e,"SearchText")}  />
            <div className = 'filters'>
              <Select
-                className ='filter-select'
+                className ='filter-select assignee-filter'
                 mode="tags"
                 placeholder="Filter By Assignee"
-                maxTagCount={1}
-                onChange = {(e) => handleChange(e,"Assignee")}                 >
+                maxTagCount={2}
+                onChange = {(e) => handleChange(e,"Assignee")}>
                    {assignee.map(ele =>  <Option value = {ele.email}> {ele.firstName} {ele.lastName} </Option>)}
                  </Select>
              <Select
