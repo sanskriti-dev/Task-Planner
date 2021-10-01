@@ -2,6 +2,8 @@
 
 > A task management application built with ReactJS.
 
+[Live Demo](https://task-planner-app.netlify.app/)
+
 
 https://user-images.githubusercontent.com/46748114/135690099-907cfa89-3c12-4e86-a877-c876a659bc79.mp4
 
