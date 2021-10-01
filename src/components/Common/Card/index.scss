@@ -1,3 +1,6 @@
+@import '../../../assets/stylesheets/global/variable';
+@import '../../../assets/stylesheets/global/gradient.scss';
+
 .card {
     margin-bottom: 12px;
     min-height: 100px;
@@ -16,20 +19,20 @@
     margin-left: 10px;
 
     .priority {
-        color: white;
+        color: $white;
         padding: 5px;
         font-weight: 800;
         width: max-content;
         border-radius: 5px;
 
         &.low {
-            background: linear-gradient( 34.34deg, #9EA7FC 0%, #65B6F7 116.98%);
+            background: $review-grad
         }
         &.medium {
-            background: linear-gradient(315.14deg, #81D5EE 0%, #7ED492 133.97%);
+            background: $complete-grad
         }
         &.high {
-         background: linear-gradient(133.98deg, #C781FF -18.23%, #E57373 125.36%);
+         background: $backlog-grad
             
         }
     }
@@ -44,7 +47,7 @@
 
             border-radius: 50%;
             font-weight: 900;
-            color: white;
+            color: $white;
             /* margin-top: 23px; */
             margin: 15px;
             margin-top: 15px;
@@ -55,7 +58,7 @@
             svg {
                 height: 22px;
                 width: 22px;
-                color: #b9b7b7;
+                color: $icon-primary;
             };
         }
     }
@@ -75,7 +78,7 @@
     margin-bottom: 15px;
     font-size: 14px;
     max-width: 14rem;
-    color: #b8b7b7;
+    color: $icon-primary;
     line-height: 1.3;
     font-weight: 500;
     }

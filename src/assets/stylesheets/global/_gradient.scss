@@ -1,0 +1,6 @@
+@import './variable.scss';
+
+$backlog-grad : linear-gradient(133.98deg, $primary-purple -18.23%, #E57373 125.36%);
+$inProgress-grad:linear-gradient(135deg, $primary-orange 0%, #FFB74D 100%);   
+$review-grad : linear-gradient(134.34deg, $primary-blue 0%, #65B6F7 114.98%);
+$complete-grad :  linear-gradient(315.14deg, #81D5EE 0%, $primary-green 133.97%);

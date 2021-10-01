@@ -1,0 +1,21 @@
+// font face mixin
+@mixin font-type($name, $location) {
+    @font-face {
+      font-family: $name;
+      src: url($location)
+    }
+  }
+ // board title mixin
+ @mixin  board-title() {
+  .title{
+    color: $white;
+} 
+} 
+
+// center content 
+@mixin  center-content() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   
+} 

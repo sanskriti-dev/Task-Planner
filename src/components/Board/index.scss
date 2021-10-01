@@ -1,4 +1,7 @@
-@import '../../variables';
+@import '../../assets/stylesheets/global/variable.scss';
+@import '../../assets/stylesheets/global/gradient.scss';
+@import '../../assets/stylesheets/global/mixins';
+
 
 .board {
     width: 280px;
@@ -11,43 +14,38 @@
     overflow-y:auto;
  
     &.border-color-backlog {
-           border-color:#C781FF ;
+           border-color : $primary-purple;
            &.draggablebg {
-             background: linear-gradient(133.98deg, #C781FF -18.23%, #E57373 125.36%);
-             .title{
-                 color: $white;
-             }
+             background: $backlog-grad;
+             @include board-title()
+
            }
            
     }
      &.border-color-inProgress {
-         border-color:#FF9784 ;
+         border-color:$primary-orange;
          &.draggablebg {
-             background: linear-gradient(135deg, #FF9784 0%, #FFB74D 100%);   
-             .title{
-                 color: $white;
-             } 
+             background: $inProgress-grad;
+            @include board-title()
          
          }
      
      }
      &.border-color-review {
-         border-color: #9EA7FC;
+         border-color: $primary-blue;
          &.draggablebg {
-             background: linear-gradient(134.34deg, #9EA7FC 0%, #65B6F7 114.98%);
-             .title{
-                 color: $white;
-             }
+             background: $review-grad;
+             @include board-title()
+
          }
  
      }
      &.border-color-complete {
          border-color: $primary-green;
          &.draggablebg {
-             background: linear-gradient(315.14deg, #81D5EE 0%, $primary-green 133.97%);
-             .title{
-                 color: $white;
-             }
+             background: $complete-grad;
+             @include board-title()
+
          }
            
      }

@@ -78,6 +78,7 @@ const CreateTask = (props) => {
     console.log('Failed:', errorInfo);
   };
 
+
   return (
     <Form
       name="form"
@@ -94,8 +95,9 @@ const CreateTask = (props) => {
             message: 'Please enter the title!',
           },
         ]}
+        
       >
-        <Input />
+        <Input placeholder = "Enter title" />
       </Form.Item>
       <Form.Item
         label="Description"
@@ -107,7 +109,7 @@ const CreateTask = (props) => {
           },
         ]}
       >
-        <Input.TextArea />
+        <Input.TextArea placeholder ="Enter description" />
       </Form.Item>
 
       <Form.Item
@@ -121,8 +123,8 @@ const CreateTask = (props) => {
         ]}
 
       >
-        <Select>
-          {properties.priority.map(ele => <Option id={ele.value} value={ele.name}>{ele.name}</Option>)}
+        <Select placeholder = "Select priority">
+          {properties.priority.map((ele,index) => <Option key ={`${index}-prior`} id={ele.value} value={ele.name}>{ele.name}</Option>)}
         </Select>
       </Form.Item>
       <Form.Item
@@ -136,8 +138,8 @@ const CreateTask = (props) => {
         ]}
 
       >
-        <Select>
-          {properties.assignee.map(ele => <Option value={ele.email}>{ele.firstName} {ele.lastName}</Option>)}
+        <Select placeholder = "Select assignee">
+          {properties.assignee.map((ele,index) => <Option  key ={`${index}-assig`} value={ele.email}>{ele.firstName} {ele.lastName}</Option>)}
         </Select>
       </Form.Item>
 
@@ -152,8 +154,8 @@ const CreateTask = (props) => {
         ]}
 
       >
-        <Select>
-          {properties.status.map(ele => <Option value={ele.value}>{ele.name}</Option>)}
+        <Select placeholder = "Select status">
+          {properties.status.map((ele,index) => <Option  key ={`${index}-stat`} value={ele.value}>{ele.name}</Option>)}
         </Select>
       </Form.Item>
 

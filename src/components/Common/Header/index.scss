@@ -1,5 +1,6 @@
+@import '../../../assets/stylesheets/global/gradient.scss';
 nav{
-    background: linear-gradient(90deg, #9EA7FC 0%, #65B6F7 124.87%, #65B6F7 124.87%);
+    background:$review-grad;
     height: 50px;
 }
 
@@ -10,7 +11,7 @@ nav{
     display: flex;
     justify-content: space-between;
     svg{
-         color:#b9b7b7;
+         color:$icon-primary;
     }
     .search-nav {
         width: 30%;
