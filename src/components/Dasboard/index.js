@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Board from '../Board';
 import Header from '../Common/Header';
 import './index.scss'
@@ -23,6 +23,7 @@ const Dashboard = () => {
     })
     const [boards,setBoards] = useState()
     const dispatch = useDispatch()
+    const createFormRef = useRef()
 
     useEffect(() => {
         if(getBoardsFromLS()?.length){
@@ -82,6 +83,7 @@ const Dashboard = () => {
         if(isEditTask)
          dispatch({type: CANCEL_TASK})
          setIsModalVisible(false)
+         createFormRef.current.resetFields();
     }
 
 
@@ -100,7 +102,7 @@ const Dashboard = () => {
         </Tooltip>
         </div> 
         <Modal visible={isModalVisible} onCancel = {handleOnCloseModal} footer ={null} >
-            <CreateTask setIsModalVisible= {setIsModalVisible} />
+            <CreateTask setIsModalVisible= {setIsModalVisible} form ={createFormRef}/>
        </Modal>
         </>
         )

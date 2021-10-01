@@ -10,9 +10,10 @@ const { Option } = Select;
 
 const CreateTask = (props) => {
   const dispatch = useDispatch()
-  const form = useRef()
+ 
   const store = useSelector(store => store)
   const {isEditTask, editTaskDetails,editTaskId}  = store
+  const {form} = props
 
   let initialValues = {
       title : editTaskDetails?.title,
