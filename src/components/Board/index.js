@@ -15,21 +15,21 @@ const Board = (props) => {
     setIsDraggingOverList(isDraggingOver);
   };
   return (
-    <Droppable droppableId={droppableId}>
-      {(provided, snapshot) => (
-        <div
-          ref={provided.innerRef}
-          onClick={changeListBackground(snapshot.isDraggingOver)}
-        >
+    <div
+      className={`board border-color-${props.key_name} ${
+        isdraggingOverList ? "draggablebg" : null
+      } `}
+    >
+      <div className="title">{props.title}</div>
+      <Droppable droppableId={droppableId}>
+        {(provided, snapshot) => (
           <div
-            className={`board border-color-${props.key_name} ${
-              isdraggingOverList ? "draggablebg" : null
-            } `}
+            ref={provided.innerRef}
+            onClick={changeListBackground(snapshot.isDraggingOver)}
           >
-            <div className="title">{props.title}</div>
             <div className="card-body">
               {props.taskList.map((ele, index) => (
-                <Draggable draggableId={ele.id} index={index}>
+                <Draggable key ={ele.id} draggableId={ele.id} index={index}>
                   {(provided, snapshot) => (
                     <div
                       ref={provided.innerRef}
@@ -43,9 +43,9 @@ const Board = (props) => {
               ))}
             </div>
           </div>
-        </div>
-      )}
-    </Droppable>
+        )}
+      </Droppable>
+    </div>
   );
 };
 

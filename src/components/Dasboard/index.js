@@ -92,7 +92,7 @@ const Dashboard = () => {
         <div className = "sideNav"> </div>
         <div className = 'boards'>
         <DragDropContext onDragEnd= {onDragEnd}>
-        {boards?.map(ele => <Board key_name={ele.key} title= {ele.title} taskList = {ele.list}/>)}
+        {boards?.map((ele,index) => <Board key = {`${index}-board`} key_name={ele.key} title= {ele.title} taskList = {ele.list}/>)}
          </DragDropContext>
         </div> 
        <Tooltip title = "Create New Task">

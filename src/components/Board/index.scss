@@ -1,3 +1,5 @@
+@import '../../variables';
+
 .board {
     width: 280px;
     background:#f2f3f7;
@@ -13,7 +15,7 @@
            &.draggablebg {
              background: linear-gradient(133.98deg, #C781FF -18.23%, #E57373 125.36%);
              .title{
-                 color: #fff;
+                 color: $white;
              }
            }
            
@@ -23,7 +25,7 @@
          &.draggablebg {
              background: linear-gradient(135deg, #FF9784 0%, #FFB74D 100%);   
              .title{
-                 color: #fff;
+                 color: $white;
              } 
          
          }
@@ -34,17 +36,17 @@
          &.draggablebg {
              background: linear-gradient(134.34deg, #9EA7FC 0%, #65B6F7 114.98%);
              .title{
-                 color: #fff;
+                 color: $white;
              }
          }
  
      }
      &.border-color-complete {
-         border-color: #7ED492;
+         border-color: $primary-green;
          &.draggablebg {
-             background: linear-gradient(315.14deg, #81D5EE 0%, #7ED492 133.97%);
+             background: linear-gradient(315.14deg, #81D5EE 0%, $primary-green 133.97%);
              .title{
-                 color: #fff;
+                 color: $white;
              }
          }
            
@@ -54,5 +56,9 @@
      font-size: 20px;
      font-weight: 500;   
     }
+    .card-body {
+        height: calc(100vh - 185px);
+        overflow: auto;
+     }
  
  };

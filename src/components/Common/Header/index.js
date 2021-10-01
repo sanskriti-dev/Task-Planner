@@ -32,7 +32,7 @@ const Header = (props) => {
     return(
      <nav className="navbar navbar-expand-lg  navbar-dark bg-primary">
        <div className = "nav-items">
-           <Input className = "search-nav" size="small" placeholder="Search Task" prefix={<SearchOutlined />} onChange = {(e) => handleChange(e,"SearchText")}  />
+           <Input className = "search-nav" size="small" placeholder="Search Task By Title" prefix={<SearchOutlined />} onChange = {(e) => handleChange(e,"SearchText")}  />
            <div className = 'filters'>
              <Select
                 className ='filter-select assignee-filter'
